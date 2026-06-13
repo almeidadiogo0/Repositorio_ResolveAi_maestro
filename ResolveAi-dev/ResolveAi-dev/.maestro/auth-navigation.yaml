@@ -1,0 +1,19 @@
+appId: com.resolveai
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Digite seu e-mail"
+    timeout: 20000
+- assertVisible: "Digite sua senha"
+- assertVisible: "Fazer Login"
+- tapOn: "Cadastre-se"
+- extendedWaitUntil:
+    visible: "Digite seu nome"
+    timeout: 20000
+- assertVisible: "Criar conta"
+- tapOn: "Entre agora"
+- extendedWaitUntil:
+    visible: "Digite seu e-mail"
+    timeout: 20000
+- assertVisible: "Fazer Login"

@@ -1,0 +1,17 @@
+appId: com.resolveai
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Digite seu e-mail"
+    timeout: 20000
+- tapOn: "Digite seu e-mail"
+- inputText: "maestro.invalid@example.com"
+- tapOn: "Digite sua senha"
+- inputText: "wrong-password"
+- tapOn: "Fazer Login"
+- extendedWaitUntil:
+    visible: "Algo deu errado"
+    timeout: 20000
+- tapOn: "Entendi"
+- assertVisible: "Fazer Login"

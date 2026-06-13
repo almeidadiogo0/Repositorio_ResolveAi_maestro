@@ -1,0 +1,35 @@
+appId: com.resolveai
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Digite seu e-mail"
+    timeout: 20000
+- tapOn: "Digite seu e-mail"
+- inputText: "teste@teste.com"
+- tapOn: "Digite sua senha"
+- inputText: "teste123"
+- tapOn: "Fazer Login"
+- extendedWaitUntil:
+    visible: "Resolve Ai|Ativar login com biometria.*"
+    timeout: 20000
+- runFlow:
+    when:
+      visible: "Ativar login com biometria.*"
+    commands:
+      - tapOn: "Agora.*"
+- extendedWaitUntil:
+    visible: "Resolve Ai"
+    timeout: 20000
+- tapOn: "Perfil"
+- extendedWaitUntil:
+    visible: "Meu Perfil"
+    timeout: 20000
+- scrollUntilVisible:
+    element: "Sair"
+    direction: DOWN
+- tapOn: "Sair"
+- extendedWaitUntil:
+    visible: "Digite seu e-mail"
+    timeout: 20000
+- assertVisible: "Fazer Login"

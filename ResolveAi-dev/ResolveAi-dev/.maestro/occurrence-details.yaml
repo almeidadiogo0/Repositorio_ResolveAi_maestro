@@ -1,0 +1,56 @@
+appId: com.resolveai
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Digite seu e-mail"
+    timeout: 20000
+- tapOn: "Digite seu e-mail"
+- inputText: "teste@teste.com"
+- tapOn: "Digite sua senha"
+- inputText: "teste123"
+- tapOn: "Fazer Login"
+- extendedWaitUntil:
+    visible: "Resolve Ai|Ativar login com biometria.*"
+    timeout: 20000
+- runFlow:
+    when:
+      visible: "Ativar login com biometria.*"
+    commands:
+      - tapOn: "Agora.*"
+- extendedWaitUntil:
+    visible: "Resolve Ai"
+    timeout: 20000
+- tapOn: "Nova ocorrencia"
+- extendedWaitUntil:
+    visible: "Nova ocorrencia"
+    timeout: 20000
+- tapOn: "Ex: Buraco no meio da rua"
+- inputText: "MaestroDetalhes"
+- tapOn: "Descreva o que esta acontecendo e como isso afeta a vizinhanca..."
+- inputText: "CriadoParaDetalhes"
+- hideKeyboard
+- scrollUntilVisible:
+    element: "Publicar ocorrencia"
+    direction: DOWN
+- tapOn: "Publicar ocorrencia"
+- extendedWaitUntil:
+    visible: "MaestroDetalhes"
+    timeout: 20000
+- tapOn: "Abrir ocorrencia MaestroDetalhes"
+- extendedWaitUntil:
+    visible: "Detalhes"
+    timeout: 20000
+- assertVisible: "Localizacao exata"
+- scrollUntilVisible:
+    element: "Apoiar a ocorrencia"
+    direction: DOWN
+- assertVisible: "Apoiar a ocorrencia"
+- scrollUntilVisible:
+    element: "Linha do tempo"
+    direction: DOWN
+- assertVisible: "Linha do tempo"
+- scrollUntilVisible:
+    element: "Comentarios da Comunidade"
+    direction: DOWN
+- assertVisible: "Comentarios da Comunidade"

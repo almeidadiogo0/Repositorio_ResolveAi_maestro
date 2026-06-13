@@ -1,0 +1,53 @@
+appId: com.resolveai
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Digite seu e-mail"
+    timeout: 20000
+- tapOn: "Digite seu e-mail"
+- inputText: "teste@teste.com"
+- tapOn: "Digite sua senha"
+- inputText: "teste123"
+- tapOn: "Fazer Login"
+- extendedWaitUntil:
+    visible: "Resolve Ai|Ativar login com biometria.*"
+    timeout: 20000
+- runFlow:
+    when:
+      visible: "Ativar login com biometria.*"
+    commands:
+      - tapOn: "Agora.*"
+- extendedWaitUntil:
+    visible: "Resolve Ai"
+    timeout: 20000
+- tapOn: "Nova ocorrencia"
+- extendedWaitUntil:
+    visible: "Nova ocorrencia"
+    timeout: 20000
+- tapOn: "Ex: Buraco no meio da rua"
+- inputText: "MaestroComentario"
+- tapOn: "Descreva o que esta acontecendo e como isso afeta a vizinhanca..."
+- inputText: "CriadoParaComentario"
+- hideKeyboard
+- scrollUntilVisible:
+    element: "Publicar ocorrencia"
+    direction: DOWN
+- tapOn: "Publicar ocorrencia"
+- extendedWaitUntil:
+    visible: "MaestroComentario"
+    timeout: 20000
+- tapOn: "Abrir ocorrencia MaestroComentario"
+- extendedWaitUntil:
+    visible: "Detalhes"
+    timeout: 20000
+- scrollUntilVisible:
+    element: "Escreva um comentario..."
+    direction: DOWN
+- tapOn: "Escreva um comentario..."
+- inputText: "ComentarioMaestroAutomatizado"
+- hideKeyboard
+- tapOn: "Enviar comentario"
+- extendedWaitUntil:
+    visible: "ComentarioMaestroAutomatizado"
+    timeout: 20000

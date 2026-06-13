@@ -1,0 +1,59 @@
+appId: com.resolveai
+---
+- launchApp:
+    clearState: true
+- extendedWaitUntil:
+    visible: "Digite seu e-mail"
+    timeout: 20000
+- tapOn: "Digite seu e-mail"
+- inputText: "teste@teste.com"
+- tapOn: "Digite sua senha"
+- inputText: "teste123"
+- tapOn: "Fazer Login"
+- extendedWaitUntil:
+    visible: "Resolve Ai|Ativar login com biometria.*"
+    timeout: 20000
+- runFlow:
+    when:
+      visible: "Ativar login com biometria.*"
+    commands:
+      - tapOn: "Agora.*"
+- extendedWaitUntil:
+    visible: "Resolve Ai"
+    timeout: 20000
+- tapOn: "Nova ocorrencia"
+- extendedWaitUntil:
+    visible: "Nova ocorrencia"
+    timeout: 20000
+- tapOn: "Ex: Buraco no meio da rua"
+- inputText: "MaestroFavoritos"
+- tapOn: "Descreva o que esta acontecendo e como isso afeta a vizinhanca..."
+- inputText: "CriadoParaFavoritos"
+- hideKeyboard
+- scrollUntilVisible:
+    element: "Publicar ocorrencia"
+    direction: DOWN
+- tapOn: "Publicar ocorrencia"
+- extendedWaitUntil:
+    visible: "MaestroFavoritos"
+    timeout: 20000
+- tapOn: "Abrir ocorrencia MaestroFavoritos"
+- extendedWaitUntil:
+    visible: "Detalhes"
+    timeout: 20000
+- scrollUntilVisible:
+    element: "Apoiar a ocorrencia"
+    direction: DOWN
+- tapOn: "Apoiar a ocorrencia"
+- extendedWaitUntil:
+    visible: "Ocorrencia apoiada"
+    timeout: 20000
+- tapOn: "Voltar"
+- tapOn: "Favoritos"
+- extendedWaitUntil:
+    visible: "Favoritos"
+    timeout: 20000
+- extendedWaitUntil:
+    visible: "MaestroFavoritos"
+    timeout: 20000
+- assertVisible: "Ver Detalhes"
